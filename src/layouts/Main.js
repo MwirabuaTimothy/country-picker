@@ -7,10 +7,10 @@ import CountryDetailContainer from '../containers/CountryDetailContainer'
 const Main = () => (
   <div className='container'>
     <div className='row'>
-      <div className='col-xs-6'>
+      <div className='col-4'>
         <CountryListContainer />
       </div>
-      <div className='col-xs-6'>
+      <div className='col-8'>
         <CountryDetailContainer />
       </div>
     </div>

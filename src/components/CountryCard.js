@@ -5,7 +5,7 @@ class CountryCard extends React.Component {
   render () {
     const { name, region } = this.props
     return (
-      <div className='thumbnail row card-background'>
+      <div className='thumbnail card-background'>
         <h2 className='text-center'>{name}</h2>
         <div className='caption'>
           <p className='text-center'>

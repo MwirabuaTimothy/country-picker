@@ -13,7 +13,7 @@ class CountryDetailContainer extends React.Component {
   }
   render () {
     return (
-      <div>
+      <div className='card'>
         {
           !this.props.selectedCountryName
             ? <div>Select a country to get more information!</div>
