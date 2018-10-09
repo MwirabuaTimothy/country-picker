@@ -15,7 +15,7 @@ class CountryDetailContainer extends React.Component {
     return (
       <div className='card'>
         {
-          !this.props.selectedCountryName
+          !this.props.selectedCountry
             ? <div>Select a country to get more information!</div>
             : <CountryDetailPage selectedCountry={this.props.selectedCountry} />
         }
@@ -29,7 +29,6 @@ const countryPropType = PropTypes.shape({
 })
 
 CountryDetailContainer.propTypes = {
-  selectedCountryName: PropTypes.string.isRequired,
   selectedCountry: PropTypes.oneOfType([
     countryPropType,
     PropTypes.object
@@ -37,8 +36,7 @@ CountryDetailContainer.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  selectedCountryName: state.countriesReducer.selectedCountry,
-  selectedCountry: state.countriesReducer.countries[state.countriesReducer.selectedCountry]
+  selectedCountry: state.countriesReducer.countriesDetails[state.countriesReducer.selectedCountry]
 })
 
 export default connect(mapStateToProps, null)(CountryDetailContainer)

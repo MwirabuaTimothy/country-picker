@@ -15,8 +15,18 @@ const initialState = {
       region: 'Europe'
     }
   },
-  countriesDetails: {},
-  selectedCountry: 'Bulgaria',
+  countriesDetails: {
+    'Åland Islands': {
+      name: 'Åland Islands',
+      region: 'Europe',
+      flag: 'https://restcountries.eu/data/ala.svg',
+      languages: [{ iso639_1: 'sv', iso639_2: 'swe', name: 'Swedish', nativeName: 'svenska' }],
+      capital: 'Mariehamn',
+      currencies: [{ code: 'EUR', name: 'Euro', symbol: '€' }],
+      population: 28875
+    }
+  },
+  selectedCountry: 'Åland Islands',
   searchFieldInput: ''
 }
 
