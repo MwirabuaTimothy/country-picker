@@ -2,31 +2,34 @@ import * as types from '../actions/types'
 
 const initialState = {
   countries: {
-    'Bulgaria': {
-      name: 'Bulgaria',
-      region: 'Europe'
+    'Kenya': {
+      name: 'Kenya',
+      region: 'Africa'
     },
-    'Germany': {
-      name: 'Germany',
-      region: 'Europe'
+    'Nigeria': {
+      name: 'Nigeria',
+      region: 'Africa'
     },
-    'France': {
-      name: 'France',
-      region: 'Europe'
+    'South Africa': {
+      name: 'South Africa',
+      region: 'Africa'
     }
   },
   countriesDetails: {
-    'Åland Islands': {
-      name: 'Åland Islands',
-      region: 'Europe',
-      flag: 'https://restcountries.eu/data/ala.svg',
-      languages: [{ iso639_1: 'sv', iso639_2: 'swe', name: 'Swedish', nativeName: 'svenska' }],
-      capital: 'Mariehamn',
-      currencies: [{ code: 'EUR', name: 'Euro', symbol: '€' }],
-      population: 28875
+    'Kenya': {
+      name: 'Kenya',
+      region: 'Africa',
+      flag: 'https://restcountries.eu/data/ken.svg',
+      languages: [
+        { iso639_1: 'en', iso639_2: 'eng', name: 'English', nativeName: 'English' },
+        { iso639_1: 'sw', iso639_2: 'swa', name: 'Swahili', nativeName: 'Kiswahili' }
+      ],
+      capital: 'Nairobi',
+      currencies: [{ code: 'KES', name: 'Kenyan shilling', symbol: 'Sh' }],
+      population: 47251000
     }
   },
-  selectedCountry: 'Åland Islands',
+  selectedCountry: 'Kenya',
   searchFieldInput: ''
 }
 

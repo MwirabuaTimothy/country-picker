@@ -8,7 +8,7 @@ import { countriesDetails } from '../utils/selectors'
  * @return {Promise}
  */
 const fetchAllCountries = () => {
-  const url = 'https://restcountries.eu/rest/v2/region/europe?fields=name;region'
+  const url = 'https://restcountries.eu/rest/v2/region/africa?fields=name;region'
   return fetch(url).then((response) => {
     if (response.status !== 200) {
       throw new Error(response.status)
