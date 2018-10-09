@@ -1,9 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 // components / utils
 import CountryDetailPage from '../pages/CountryDetailPage'
+import { countryPropType } from '../utils/customPropTypes'
 
 class CountryDetailContainer extends React.Component {
   constructor (props) {
@@ -23,16 +23,9 @@ class CountryDetailContainer extends React.Component {
     )
   }
 }
-const countryPropType = PropTypes.shape({
-  name: PropTypes.string.isRequired,
-  region: PropTypes.string.isRequired
-})
 
 CountryDetailContainer.propTypes = {
-  selectedCountry: PropTypes.oneOfType([
-    countryPropType,
-    PropTypes.object
-  ]).isRequired
+  selectedCountry: countryPropType.isRequired
 }
 
 const mapStateToProps = state => ({

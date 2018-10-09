@@ -36,7 +36,10 @@ const CountryListPage = ({ countries, selectedCountry, selectCountry, searchFiel
 )
 
 CountryListPage.propTypes = {
-  countries: PropTypes.arrayOf(PropTypes.object).isRequired,
+  countries: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    region: PropTypes.string.isRequired
+  })).isRequired,
   selectedCountry: PropTypes.string.isRequired,
   selectCountry: PropTypes.func.isRequired,
   searchFieldInput: PropTypes.string.isRequired,

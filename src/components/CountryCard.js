@@ -1,6 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import LoadImage from './LoadImage'
+import { countryPropType } from '../utils/customPropTypes'
 
 class CountryCard extends React.Component {
   render () {
@@ -39,14 +39,6 @@ class CountryCard extends React.Component {
   }
 }
 
-CountryCard.propTypes = {
-  name: PropTypes.string.isRequired,
-  region: PropTypes.string.isRequired,
-  flag: PropTypes.string.isRequired,
-  languages: PropTypes.array.isRequired,
-  capital: PropTypes.string.isRequired,
-  currencies: PropTypes.array.isRequired,
-  population: PropTypes.number.isRequired
-}
+CountryCard.propType = countryPropType
 
 export default CountryCard
