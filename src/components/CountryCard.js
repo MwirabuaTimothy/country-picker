@@ -41,7 +41,12 @@ class CountryCard extends React.Component {
 
 CountryCard.propTypes = {
   name: PropTypes.string.isRequired,
-  region: PropTypes.string.isRequired
+  region: PropTypes.string.isRequired,
+  flag: PropTypes.string.isRequired,
+  languages: PropTypes.array.isRequired,
+  capital: PropTypes.string.isRequired,
+  currencies: PropTypes.array.isRequired,
+  population: PropTypes.number.isRequired
 }
 
 export default CountryCard
