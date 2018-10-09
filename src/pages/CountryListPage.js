@@ -7,13 +7,13 @@ const CountryListPage = ({ countries, selectedCountry, selectCountry, searchFiel
   <div>
     <div className='input-group'>
       <span className='input-group-btn'>
-        <button className='btn btn-default' type='button'>Go!</button>
+        <button className='btn btn-default' type='button'>{countries.length} Countries</button>
       </span>
       <input
         type='text'
         className='form-control'
         value={searchFieldInput}
-        placeholder='client-search for countries'
+        placeholder='Search...'
         onChange={e => changeSearchFieldInput(e.target.value)}
       />
     </div>
