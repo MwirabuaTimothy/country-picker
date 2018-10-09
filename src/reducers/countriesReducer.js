@@ -20,6 +20,15 @@ const initialState = {
 
 export default function countriesReducer (state = initialState, action) {
   switch (action.type) {
+    case types.ALL_COUNTRIES_FETCH_SUCCEEDED:
+      const countries = {}
+      action.data.forEach(country => {
+        countries[country.name] = country
+      })
+      return {
+        ...state,
+        countries: countries
+      }
     case types.SET_SELECTED_COUNTRY:
       return {
         ...state,

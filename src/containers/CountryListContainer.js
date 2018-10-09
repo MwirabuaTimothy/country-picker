@@ -7,22 +7,38 @@ import { connect } from 'react-redux'
 import CountryListPage from '../pages/CountryListPage'
 import * as actions from '../actions'
 
-const CountryListContainer = ({ countries, selectedCountry, actions }) => (
-  <div>
-    { countries.length > 0
-      ? <CountryListPage
-        countries={countries}
-        selectedCountry={selectedCountry}
-        selectCountry={actions.selectCountry}
-        setActiveCountryListItem={actions.setActiveCountryListItem}
-      />
-      : <div>Loading Countries...</div>
+class CountryListContainer extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
     }
-  </div>
-)
+  }
+  componentWillMount () {
+    console.log('start')
+    this.props.actions.requestAllCountries()
+  }
+  render () {
+    return (
+      <div>
+        { this.props.countries.length > 0
+          ? <CountryListPage
+            countries={this.props.countries}
+            selectedCountry={this.props.selectedCountry}
+            selectCountry={this.props.actions.selectCountry}
+            setActiveCountryListItem={this.props.actions.setActiveCountryListItem}
+          />
+          : <div>Loading Countries...</div>
+        }
+      </div>
+    )
+  }
+}
 
 CountryListContainer.propTypes = {
-  countries: PropTypes.arrayOf(PropTypes.object).isRequired,
+  countries: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    region: PropTypes.string.isRequired
+  })).isRequired,
   selectedCountry: PropTypes.string.isRequired,
   actions: PropTypes.object.isRequired
 }
