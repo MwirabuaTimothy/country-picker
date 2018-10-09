@@ -4,7 +4,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
 // components , reducers, sagas
-import AppLayout from '../layouts/AppLayout'
+import Main from '../layouts/Main'
 import rootReducer from '../reducers'
 import rootSaga from '../sagas'
 
@@ -31,7 +31,7 @@ const store = configureStore(initialState)
 // wrap rest of the App in a provider
 const AppContainer = () => (
   <Provider store={store}>
-    <AppLayout />
+    <Main />
   </Provider>
 )
 

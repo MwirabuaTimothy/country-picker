@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import ListViewItem from '../components/ListViewItem'
+import CountryListItem from '../components/CountryListItem'
 
-const CountryMasterPage = ({ countries, selectedCountry, selectCountry, setActiveCountryListItem }) => (
+const CountryListPage = ({ countries, selectedCountry, selectCountry, setActiveCountryListItem }) => (
   <div>
     <div className='list-group list-scrollable'>
       {countries.map(country => (
-        <ListViewItem
+        <CountryListItem
           key={country.name}
           title={country.name}
           subTitle={country.region}
@@ -23,11 +23,11 @@ const CountryMasterPage = ({ countries, selectedCountry, selectCountry, setActiv
   </div>
 )
 
-CountryMasterPage.propTypes = {
+CountryListPage.propTypes = {
   countries: PropTypes.arrayOf(PropTypes.object).isRequired,
   selectedCountry: PropTypes.string.isRequired,
   selectCountry: PropTypes.func.isRequired,
   setActiveCountryListItem: PropTypes.func.isRequired
 }
 
-export default CountryMasterPage
+export default CountryListPage

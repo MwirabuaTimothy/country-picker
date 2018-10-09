@@ -4,13 +4,13 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 // components / actions
-import MasterViewPage from '../pages/MasterViewPage'
+import CountryListPage from '../pages/CountryListPage'
 import * as actions from '../actions'
 
-const MasterViewContainer = ({ countries, selectedCountry, actions }) => (
+const CountryListContainer = ({ countries, selectedCountry, actions }) => (
   <div>
     { countries.length > 0
-      ? <MasterViewPage
+      ? <CountryListPage
         countries={countries}
         selectedCountry={selectedCountry}
         selectCountry={actions.selectCountry}
@@ -21,7 +21,7 @@ const MasterViewContainer = ({ countries, selectedCountry, actions }) => (
   </div>
 )
 
-MasterViewContainer.propTypes = {
+CountryListContainer.propTypes = {
   countries: PropTypes.arrayOf(PropTypes.object).isRequired,
   selectedCountry: PropTypes.string.isRequired,
   actions: PropTypes.object.isRequired
@@ -29,7 +29,7 @@ MasterViewContainer.propTypes = {
 
 const mapStateToProps = state => ({
   // only use reducers and the data you need per container
-  countries: state.countriesReducer.countries,
+  countries: Object.values(state.countriesReducer.countries),
   selectedCountry: state.countriesReducer.selectedCountry
 })
 
@@ -38,4 +38,4 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(Object.assign({}, actions), dispatch)
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(MasterViewContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(CountryListContainer)

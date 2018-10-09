@@ -1,20 +1,20 @@
 import * as types from '../actions/types'
 
 const initialState = {
-  countries: [
-    {
+  countries: {
+    'Bulgaria': {
       name: 'Bulgaria',
       region: 'Europe'
     },
-    {
+    'Germany': {
       name: 'Germany',
       region: 'Europe'
     },
-    {
+    'France': {
       name: 'France',
       region: 'Europe'
     }
-  ],
+  },
   selectedCountry: 'Bulgaria'
 }
 
