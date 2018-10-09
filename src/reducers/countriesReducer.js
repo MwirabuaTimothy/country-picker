@@ -4,16 +4,7 @@ const initialState = {
   countries: {
     'Bulgaria': {
       name: 'Bulgaria',
-      region: 'Europe',
-      details: {
-        name: 'test',
-        region: 'test',
-        flag: 'test',
-        languages: 'test',
-        capital: 'test',
-        currencies: 'test',
-        population: 'test'
-      }
+      region: 'Europe'
     },
     'Germany': {
       name: 'Germany',
@@ -24,6 +15,7 @@ const initialState = {
       region: 'Europe'
     }
   },
+  countriesDetails: {},
   selectedCountry: 'Bulgaria',
   searchFieldInput: ''
 }
@@ -44,9 +36,14 @@ export default function countriesReducer (state = initialState, action) {
         ...state
       }
     case types.SINGLE_COUNTRY_SUCCEEDED:
+      const country = action.data
+      const countriesDetails = { ...state.countriesDetails } // make a copy
+      countriesDetails[country.name] = country
+
       return {
         ...state,
-        selectedCountry: action.name
+        countriesDetails,
+        selectedCountry: country.name
       }
     case types.CHANGE_SEARCH_FIELD_INPUT:
       return {

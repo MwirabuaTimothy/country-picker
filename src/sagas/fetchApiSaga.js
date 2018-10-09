@@ -1,4 +1,4 @@
-import { takeEvery, call, put } from 'redux-saga/effects'
+import { takeEvery, call, put, select } from 'redux-saga/effects'
 import * as types from '../actions/types'
 import { createCountryObject } from '../utils/helperFunctions'
 
@@ -48,12 +48,16 @@ const fetchSingleCountry = (name) => {
  * generator function which calls fetchSingleCountry and dispatches the according action
  * once fetchSingleCountry returns the promise
  */
-function * fetchSingleCountryData (action) {
-  try {
-    const data = yield call(fetchSingleCountry, action.name)
-    yield put({ type: types.SINGLE_COUNTRY_SUCCEEDED, name: data.name })
-  } catch (error) {
-    yield put({ type: types.REQUEST_FAILED, error })
+function * getSingleCountry (action) {
+  const countriesDetails = yield select(state => state.countriesReducer.countriesDetails)
+  console.log(countriesDetails)
+  if (!countriesDetails[action.name]) {
+    try {
+      const data = yield call(fetchSingleCountry, action.name)
+      yield put({ type: types.SINGLE_COUNTRY_SUCCEEDED, data })
+    } catch (error) {
+      yield put({ type: types.REQUEST_FAILED, error })
+    }
   }
 }
 
@@ -66,10 +70,10 @@ const fetchFailed = () => {
  * and executes the respective functions
 */
 export default function * watchFetchData () {
-  // yield put({ type: types.SINGLE_COUNTRY_REQUEST, 'name': 'Netherlands' })
+  // yield put({ type: types.SELECT_SINGLE_COUNTRY, 'name': 'Netherlands' })
   // yield put({ type: types.ALL_COUNTRIES_FETCH_REQUESTED })
 
   yield takeEvery(types.ALL_COUNTRIES_FETCH_REQUESTED, fetchData)
-  yield takeEvery(types.SINGLE_COUNTRY_REQUEST, fetchSingleCountryData)
+  yield takeEvery(types.SELECT_SINGLE_COUNTRY, getSingleCountry)
   yield takeEvery(types.REQUEST_FAILED, fetchFailed)
 }

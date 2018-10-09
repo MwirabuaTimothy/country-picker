@@ -5,7 +5,7 @@ export const requestAllCountries = () => ({
 })
 
 export const selectCountry = name => ({
-  type: types.SINGLE_COUNTRY_REQUEST,
+  type: types.SELECT_SINGLE_COUNTRY,
   name
 })
 
