@@ -4,11 +4,11 @@ import LoadImage from './LoadImage'
 
 class CountryCard extends React.Component {
   render () {
-    const { name, region, image, languages, capital, currencies, population } = this.props
+    const { name, region, flag, languages, capital, currencies, population } = this.props
     return (
       <div className='thumbnail row card-background'>
         <h2 className='text-center'>{name}</h2>
-        <LoadImage image={image} />
+        <LoadImage flag={flag} />
         <div className='caption'>
           <p className='text-center'>
             Region: {region} -- Population: {population} -- Capital: {capital}

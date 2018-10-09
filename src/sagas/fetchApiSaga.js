@@ -50,10 +50,12 @@ const fetchSingleCountry = (name) => {
  */
 function * getSingleCountry (action) {
   const countriesDetails = yield select(state => state.countriesReducer.countriesDetails)
-  console.log(countriesDetails)
-  if (!countriesDetails[action.name]) {
+  let data = countriesDetails[action.name]
+  if (data) {
+    yield put({ type: types.SINGLE_COUNTRY_SUCCEEDED, data })
+  } else {
     try {
-      const data = yield call(fetchSingleCountry, action.name)
+      data = yield call(fetchSingleCountry, action.name)
       yield put({ type: types.SINGLE_COUNTRY_SUCCEEDED, data })
     } catch (error) {
       yield put({ type: types.REQUEST_FAILED, error })

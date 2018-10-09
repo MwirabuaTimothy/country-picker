@@ -12,7 +12,7 @@ class LoadImage extends React.Component {
     this.onImageLoad = this.onImageLoad.bind(this)
   }
   componentWillReceiveProps (nextProps) {
-    if (nextProps.image !== this.props.image) {
+    if (nextProps.flag !== this.props.flag) {
       this.setState({ imageLoading: true })
     }
   }
@@ -22,7 +22,7 @@ class LoadImage extends React.Component {
   render () {
     return (
       <img
-        src={this.props.image}
+        src={this.props.flag}
         alt="Country's Flag"
         className={'responsive custom-image-size ' + (this.state.imageLoading && 'not-visible')}
         onLoad={this.onImageLoad}
@@ -32,7 +32,7 @@ class LoadImage extends React.Component {
 }
 
 LoadImage.propTypes = {
-  image: PropTypes.string.isRequired
+  flag: PropTypes.string.isRequired
 }
 
 export default LoadImage

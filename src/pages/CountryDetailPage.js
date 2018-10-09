@@ -8,7 +8,7 @@ const CountryDetailPage = ({ selectedCountry }) => (
   <CountryCard
     name={selectedCountry.name}
     region={selectedCountry.region}
-    image={selectedCountry.image}
+    flag={selectedCountry.flag}
     languages={selectedCountry.languages}
     capital={selectedCountry.capital}
     currencies={selectedCountry.currencies}
