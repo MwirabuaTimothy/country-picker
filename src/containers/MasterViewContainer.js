@@ -14,6 +14,7 @@ const MasterViewContainer = ({ countries, selectedCountry, actions }) => (
         countries={countries}
         selectedCountry={selectedCountry}
         selectCountry={actions.selectCountry}
+        setActiveCountryListItem={actions.setActiveCountryListItem}
       />
       : <div>Loading Countries...</div>
     }
