@@ -56,13 +56,19 @@ function * fetchSingleCountryData (action) {
   }
 }
 
+const fetchFailed = () => {
+  console.log('failed')
+}
+
 /**
  * generator function which listens to every dispatch of actions
  * and executes the respective functions
 */
 export default function * watchFetchData () {
-  yield put({ type: types.SINGLE_COUNTRY_REQUEST, 'name': 'Netherlands' })
-  yield put({ type: types.ALL_COUNTRIES_FETCH_REQUESTED })
+  // yield put({ type: types.SINGLE_COUNTRY_REQUEST, 'name': 'Netherlands' })
+  // yield put({ type: types.ALL_COUNTRIES_FETCH_REQUESTED })
+
   yield takeEvery(types.ALL_COUNTRIES_FETCH_REQUESTED, fetchData)
   yield takeEvery(types.SINGLE_COUNTRY_REQUEST, fetchSingleCountryData)
+  yield takeEvery(types.REQUEST_FAILED, fetchFailed)
 }
