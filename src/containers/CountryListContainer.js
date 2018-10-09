@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 // components / actions
 import CountryListPage from '../pages/CountryListPage'
 import * as actions from '../actions'
+import { filterCountries } from '../utils/helperFunctions'
 
 class CountryListContainer extends React.Component {
   constructor (props) {
@@ -21,7 +22,7 @@ class CountryListContainer extends React.Component {
       <div>
         { this.props.countries.length > 0
           ? <CountryListPage
-            countries={this.props.countries}
+            countries={filterCountries(this.props.countries, this.props.searchFieldInput)}
             selectedCountry={this.props.selectedCountry}
             selectCountry={this.props.actions.selectCountry}
             searchFieldInput={this.props.searchFieldInput}
