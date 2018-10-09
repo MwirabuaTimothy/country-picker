@@ -14,7 +14,6 @@ class CountryListContainer extends React.Component {
     }
   }
   componentWillMount () {
-    console.log('start')
     this.props.actions.requestAllCountries()
   }
   render () {
@@ -25,7 +24,8 @@ class CountryListContainer extends React.Component {
             countries={this.props.countries}
             selectedCountry={this.props.selectedCountry}
             selectCountry={this.props.actions.selectCountry}
-            setActiveCountryListItem={this.props.actions.setActiveCountryListItem}
+            searchFieldInput={this.props.searchFieldInput}
+            changeSearchFieldInput={this.props.actions.changeSearchFieldInput}
           />
           : <div>Loading Countries...</div>
         }
@@ -40,13 +40,15 @@ CountryListContainer.propTypes = {
     region: PropTypes.string.isRequired
   })).isRequired,
   selectedCountry: PropTypes.string.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  searchFieldInput: PropTypes.string.isRequired
 }
 
 const mapStateToProps = state => ({
   // only use reducers and the data you need per container
   countries: Object.values(state.countriesReducer.countries),
-  selectedCountry: state.countriesReducer.selectedCountry
+  selectedCountry: state.countriesReducer.selectedCountry,
+  searchFieldInput: state.countriesReducer.searchFieldInput
 })
 
 const mapDispatchToProps = dispatch => ({

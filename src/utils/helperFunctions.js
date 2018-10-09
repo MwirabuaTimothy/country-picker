@@ -32,13 +32,5 @@ export const objectIsEmpty = (object) => {
  */
 export const createCountryObject = (singleCountry) => {
   const { name, region, flag, languages, capital, currencies, population } = singleCountry[0]
-  return Object.assign({}, {
-    countryName: name,
-    regionName: region,
-    flagImageLink: flag,
-    languages,
-    capitalCity: capital,
-    currencies,
-    population
-  })
+  return Object.assign({}, { name, region, flag, languages, capital, currencies, population })
 }

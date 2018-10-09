@@ -15,7 +15,8 @@ const initialState = {
       region: 'Europe'
     }
   },
-  selectedCountry: 'Bulgaria'
+  selectedCountry: 'Bulgaria',
+  searchFieldInput: ''
 }
 
 export default function countriesReducer (state = initialState, action) {
@@ -29,10 +30,19 @@ export default function countriesReducer (state = initialState, action) {
         ...state,
         countries: countries
       }
-    case types.SET_SELECTED_COUNTRY:
+    case types.REQUEST_FAILED:
+      return {
+        ...state
+      }
+    case types.SINGLE_COUNTRY_SUCCEEDED:
       return {
         ...state,
         selectedCountry: action.name
+      }
+    case types.CHANGE_SEARCH_FIELD_INPUT:
+      return {
+        ...state,
+        searchFieldInput: action.inputValue
       }
     default:
       return state

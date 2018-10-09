@@ -9,7 +9,7 @@ export const selectCountry = name => ({
   name
 })
 
-export const setActiveCountryListItem = name => ({
-  type: types.SET_SELECTED_COUNTRY,
-  name
+export const changeSearchFieldInput = inputValue => ({
+  type: types.CHANGE_SEARCH_FIELD_INPUT,
+  inputValue
 })

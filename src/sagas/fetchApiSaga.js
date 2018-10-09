@@ -1,5 +1,6 @@
 import { takeEvery, call, put } from 'redux-saga/effects'
 import * as types from '../actions/types'
+import { createCountryObject } from '../utils/helperFunctions'
 
 /**
  * returns all european countries from the restcountries api
@@ -40,7 +41,7 @@ const fetchSingleCountry = (name) => {
       throw new Error(response.status)
     }
     return response.json()
-  }).then(data => console.log(data))
+  }).then(data => createCountryObject(data))
 }
 
 /**
@@ -50,7 +51,7 @@ const fetchSingleCountry = (name) => {
 function * fetchSingleCountryData (action) {
   try {
     const data = yield call(fetchSingleCountry, action.name)
-    yield put({ type: types.SINGLE_COUNTRY_SUCCEEDED, data })
+    yield put({ type: types.SINGLE_COUNTRY_SUCCEEDED, name: data.name })
   } catch (error) {
     yield put({ type: types.REQUEST_FAILED, error })
   }
