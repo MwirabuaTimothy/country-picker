@@ -4,7 +4,16 @@ const initialState = {
   countries: {
     'Bulgaria': {
       name: 'Bulgaria',
-      region: 'Europe'
+      region: 'Europe',
+      details: {
+        name: 'test',
+        region: 'test',
+        flag: 'test',
+        languages: 'test',
+        capital: 'test',
+        currencies: 'test',
+        population: 'test'
+      }
     },
     'Germany': {
       name: 'Germany',
