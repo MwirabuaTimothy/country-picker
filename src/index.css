@@ -16,14 +16,17 @@
 }
 
 .list-group-item:focus {
-  background-color: aliceblue !important;
-  outline: none;
+  background-color: aliceblue !important
 }
 
 .card-background {
   background-color: rgba(84, 84, 84, 0.12)
 }
 
-.hr-black-border {
+hr {
   border-color: black
+}
+
+.not-visible {
+  visibility: hidden;
 }
