@@ -1,6 +1,7 @@
 import { takeEvery, call, put, select } from 'redux-saga/effects'
 import * as types from '../actions/types'
 import { createCountryObject } from '../utils/helperFunctions'
+import { countriesDetails } from '../utils/selectors'
 
 /**
  * returns all european countries from the restcountries api
@@ -49,8 +50,8 @@ const fetchSingleCountry = (name) => {
  * once fetchSingleCountry returns the promise
  */
 function * getSingleCountry (action) {
-  const countriesDetails = yield select(state => state.countriesReducer.countriesDetails)
-  let data = countriesDetails[action.name]
+  const _countriesDetails = yield select(countriesDetails)
+  let data = _countriesDetails[action.name]
   if (data) {
     yield put({ type: types.SINGLE_COUNTRY_SUCCEEDED, data })
   } else {
