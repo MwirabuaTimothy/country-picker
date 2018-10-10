@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/country-picker/static/css/main.0e728ab4.chunk.css"
   },
   {
-    "revision": "aad426d1f53173e6c464984e4e73f537",
+    "revision": "e5d99f1cda9c9804cfd7384ac9f7885a",
     "url": "/country-picker/index.html"
   }
 ];
